@@ -1,0 +1,55 @@
+package com.yash.main;
+
+import javax.swing.JOptionPane;
+
+import com.yash.model.Person;
+import com.yash.serviceimpl.LinkedListServiceImpl;
+
+public class ApplicationStartup {
+
+	public static void main(String[] args) {
+		LinkedListServiceImpl linkedListServiceImpl = new LinkedListServiceImpl();
+		String condition;
+		
+		do {
+			System.out.println("-----Copyright : Aakash & Ishan-----");
+			System.out.println("-----MAIN MENU-----");
+			System.out.println("1.) Book Ticket");
+			System.out.println("2.) get person by ticket number");
+			System.out.println("3.) cancel ticket");
+			System.out.println("4.) show list");
+			int key =Integer.parseInt(JOptionPane.showInputDialog("Enter your choice"));
+			switch (key) {
+			
+			case 1:
+				String OwnerName = JOptionPane.showInputDialog("enter person name");
+				int aadhar = Integer.parseInt(JOptionPane.showInputDialog("enter aadhar number"));
+				linkedListServiceImpl.bookTicket(OwnerName, aadhar);
+				break;
+				
+			case 2:
+				int id = Integer.parseInt(JOptionPane.showInputDialog("enter ticket number"));
+				Person temp = linkedListServiceImpl.getPersonByTicket(id);
+				System.out.println(temp);
+				break;
+				
+			case 3:
+				int cancelid = Integer.parseInt(JOptionPane.showInputDialog("enter ticket number"));
+				linkedListServiceImpl.cancelTicket(cancelid);
+				break;
+				
+			case 4:
+				linkedListServiceImpl.showList();
+				break;
+				
+			default:
+				break;
+			}
+			condition = JOptionPane.showInputDialog("do you want to continue (yes/no)");
+			
+		} while (condition.equalsIgnoreCase("yes"));
+		
+		
+		
+	}
+}
