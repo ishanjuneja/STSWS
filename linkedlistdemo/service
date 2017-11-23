@@ -1,0 +1,90 @@
+package com.yash.serviceimpl;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+
+import javax.swing.JOptionPane;
+
+import com.yash.model.Person;
+import com.yash.model.Ticket;
+
+public class LinkedListServiceImpl {
+
+	LinkedList<Person> personRepository;
+	LinkedList<Person> waitingList;
+	Person person;
+	Ticket ticket;
+	int ticketID=101;
+	public LinkedListServiceImpl() {
+		personRepository = new LinkedList<>();
+		waitingList = new LinkedList<>();
+	}
+	
+
+	
+	
+	public void bookTicket(String OwnerName,int aadhar){
+		
+		person = new Person();
+		ticket = new Ticket();
+		person.setName(OwnerName);
+		person.setAadhar(aadhar);
+		ticket.setOwnerName(OwnerName);
+		ticket.setTicketId(ticketID);
+		person.setTicket(ticket);
+		if(personRepository.size()<3){
+		personRepository.add(person);
+		}
+		else{
+			waitingList.add(person);
+		}
+		JOptionPane.showMessageDialog(null, "ticket "+this.ticketID +" booked successfully");
+		ticketID++;
+		}	
+
+	public Person getPersonByTicket(int id){		
+	for (Person person : personRepository) {
+		if(person.getTicket().getTicketId()==id){
+			return person;
+		}
+	}
+	return null;
+	}
+	
+	public void cancelTicket(int id){
+	for (Person person : personRepository) {
+		if(person.getTicket().getTicketId()==id)
+		{
+			
+			
+			if(waitingList.size()!=0){
+				JOptionPane.showMessageDialog(null, "ticket cancelled successfully for "+person.getName());
+			personRepository.set(personRepository.indexOf(person), waitingList.getFirst());
+			JOptionPane.showMessageDialog(null, "waiting confirmed successfully for :"+waitingList.getFirst() );
+			waitingList.removeFirst();
+			
+			}
+			else{
+			personRepository.remove(person);
+			JOptionPane.showMessageDialog(null, "ticket cancelled successfully");
+		}
+			}
+	}	
+	}
+	
+	public void showList(){
+		System.out.println("----confirmed tickets are----");
+		for (Person person : personRepository) {
+			System.out.println(person);	
+		}
+		if(waitingList.size()!=0){
+		System.out.println("----Waiting tickets are----");
+		for (Person person : waitingList) {
+			System.out.println(person);
+		}
+	}
+		
+	}
+	
+	
+}
