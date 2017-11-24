@@ -17,7 +17,7 @@ public class Collecting extends Thread {
 	
 	@Override
 public void run() {
-	reservation.deleteNumber(2);
+	reservation.searchNumber(2);
 	System.out.println("collecting thread"+reservation.demo);
 }
 	
