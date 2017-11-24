@@ -19,7 +19,7 @@ public class Person extends Thread {
 	
 	@Override
 	public void run() {
-		reservation.searchNumber(5);
+		reservation.deleteNumber(5);
 		System.out.println("person"+reservation.demo);
 		
 	}
