@@ -1,0 +1,223 @@
+
+WELCOME: ISHAN JUNEJA
+TIME REMAINING: 00:06:55
+                                                                                                                     
+LOGOUT
+Servlet Session Management
+
+
+1. A class wants to keep track of its number of objects being added to HttpSession objects. Which will be the ideal way to achieve this?
+	
+Define a listener class implementing HttpSessionBindingListener and in the valueBound() method, keep track of the number of instances being added in a static variable.
+	
+ he Servlet API provides direct support for keeping track the object instances.
+	
+Define a listener class implementing HttpSessionListener and whenever an object is added to Http Session object, keep track of the number of instances.
+	
+It is highly impossible to keep track the number of objects being added to a Http Session in a Web Application.
+
+2. Which of the following statement(s) is/are FALSE
+	
+SSL has a built in mechanism to obtain the data to define a session
+	
+ URL-rewriting can be used to track session
+	
+There is no restriction for the name of the cookie tracking the session.
+	
+The name of session tracking cookies must be JSESSIONID
+
+3. Select the correct code snippet that demonstrates retrieving a value, user from a Cookie object.
+	
+ Cookie ck = req.getCookies();  if (ck!=null)  {  for (int i=0; i<ck.length; i++)  {  if (ck[i].getCookieName().equals("user"))  username = ck[i].getCookieValue();  }  }
+	
+ Cookie ck[] = req.getCookies();  if (ck!=null)  {  for (int i=0; i<ck.length; i++)  {  if (ck[i].getName().equals("user"))  username = ck[i].getValue();  }  }
+	
+Cookie ck[] = req.getCookie();  if (ck!=null)  {  for (int i=0; i<ck.length; i++)  {  if (ck[i].getName().equals("user"))  username = ck[i].getValue();  }  }
+	
+Cookie ck = req.getCookies();  if (ck!=null)  {  for (int i=0; i<ck.length; i++)  {  if (ck[i].getName().equals("user"))  username = ck[i].getValue();  }  }
+
+4. If cookies are disabled on client-side, the alternate session mechanism which can be used is
+	
+None of the above
+	
+ Cookies and URL-rewriting
+	
+Either Cookies or URL-rewriting
+	
+URL-rewriting
+
+5. ____________ method will return null if session does not exist
+	
+getSession()
+	
+ getSession(true)
+	
+getSession(false)
+	
+getNewSession()
+
+6. Which of the following methods will be invoked when a session is invalidated for a custom session attribute implementing HttpSessionBindingListener?
+	
+sessionInvalidated()
+	
+ attributeRemoved()
+	
+valueUnbound()
+	
+sessionDestroyed()
+
+7.  List the methods of HttpSession interface
+	
+getID()   isNew()  getAttribute()  saveAttribute()  removeAttribute()
+	
+ getId()   isNewSession()  getAttribute()  setAttribute()  removeAttribute()
+	
+getID()   isNew()  getAttribute()  setAttribute()  removeAttribute()
+	
+ getId()   isNew()  loadAttribute()  setAttribute()  removeAttribute()
+
+8. An application wants to invalidate the sessions both programmatically and declaratively. Choose the following best match to do this.
+	
+httpRequest.getSession().close()  <session-config>  <session-timeout>someValueInMinutes</session-timeout>  </session-config>
+	
+ httpRequest.getSession().invalidate()  <session-config>  <session-timeout>someValueInMinutes</session-timeout>  </session-config>
+	
+httpRequest.getSession().invalidate()  <session-config>  <session-duration>someValueInMinutes</session-duration>  </session-config>
+	
+httpRequest.getSession().end()  <session-config>  <session-timeout-interval>someValueInMinutes</ session-timeout-interval >  </session-config>
+
+9. A Servlet called InfoServlet has been invoked with the URL pattern as follows, 
+
+ 
+
+"/servlet/InfoServlet;jsessionid=G08433HJFDF06FFSKFSKSDDJfdkfdk8". 
+
+ 
+
+How to retrieve the value of jsessionid in the doGet() method?
+
+	
+None of the these.
+	
+ HttpSession session = request.getSession();  String sessionID = session.getParamter("jsessionid");
+	
+String sessionID = request.getParamter("jsessionid");
+	
+String sessionID = context.getParamter("jsessionid");
+
+10. Which of the following method call is used to kill an existing session object?
+	
+HttpSession.invalidate()
+	
+ HttpSession.destroy()
+	
+HttpSession.deactivate()
+	
+HttpSession.kill()
+
+11.  Which of the following is the preferred way to get the session id that is unique to each session object?
+
+ 
+
+	
+There is no way to obtain a session id associated with a session since session identifiers are container dependant.
+	
+ HttpSession.getId()
+	
+HttpSession.getSessionId()
+	
+Both HttpSession.getSessionId() and HttpSession.getId()
+
+12. Which of the following are not valid Listener Interfaces for Http Session?
+	
+HttpSessionAttributeListener
+	
+ HttpSessionListener
+	
+HttpSessionContextListener
+	
+HttpSessionBindingListener
+
+13. Which of the following APIs is used to retrieve the value of an object by name 'Connection' that is stored in a session?
+	
+Object connection = HttpSession.getObject("Connection");
+	
+ Object connection = HttpSession.getAttribute("Connection");
+	
+Object connection = HttpSession.getData("Connection");
+	
+Object connection = HttpSession.getSessionData("Connection");
+
+14. Choose the right circumstances under which a session will be invalided from the following?
+	
+When the Servlet in question calls the Session.end() method.
+	
+ When a Client sends the HTTP_SESSION_END request.
+	
+When the user closes the browser window.
+	
+When the Servlet in question calls the Session.invalidate() method.
+
+15. Which of the following code snippets, when inserted in the doGet() method, will correctly count the number of GET requests made by a user? 
+	
+HttpSession session = request.getSession();  int count = (int) session.getAttribute("count");  session.setAttribute("count", count++);
+	
+ HttpSession session = request.getSession();  int count = ((Integer) session.getAttribute("count")).intValue();  session.setAttribute("count", new Integer(++count));
+	
+HttpSession session = request.getSession();  int count = session.getAttribute("count");  session.setAttribute("count", count++);
+	
+HttpSession session = request.getSession();  int count = ((Integer) session.getAttribute("count")).intValue();  session.setAttribute("count", count++);
+
+16. Which of the following is NOT a session management technique
+	
+URL-rewriting
+	
+ HTTP Cookies
+	
+Hidden form fields
+	
+FTP
+
+17. The interface which defines a getSession() method is
+	
+HttpServletRequest
+	
+ ServletResoponse
+	
+HttpServletResponse
+	
+ServletRequest
+
+18. While managing sessions between the Client and the Server, how does the Servlet Container keeps track of the session using Cookies?
+	
+Add information in the deployment descriptor as follows,  <cookie-management>  <cookie-id>someId</cookie-id>  </cookie-management>
+	
+ Using the HttpServletRequest object call the addCookie() method, by passing a Cookie 
+	
+The Servlet Container while sending response to the Browser, adds special information and it is the responsibility of the Browser to send this back this information back 
+	
+None of these.
+
+19. Which of the following statements is true about Http Session?
+	
+Http protocol is a stateless protocol and it hasn't got the capability of remembering the series of requests coming from the same user.
+	
+ It is impossible to define the session time-out for a Web Application through any means.
+	
+Session Id's for a particular client is generated based on the Client's Internet Address.
+	
+Management of sessions amongst multiple users is automatically available in the Servlet Container.
+
+20. ____________ method on the session object is used to remove an already set attribute
+	
+removeAttributes()
+	
+  removeAllAttributes()
+	
+removeAttribute(attribute-name)
+	
+removeAllValues()
+        
+       		 					                   	  Submit
+      
+      
