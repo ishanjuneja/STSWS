@@ -1,0 +1,297 @@
+
+WELCOME: NITESH YADAV
+TIME REMAINING: 00:03:04
+                                                                                                                   
+LOGOUT
+MYSQL
+
+
+1. What is an SQL virtual table that is constructed from other tables?
+	
+Just another table 
+	
+ A relation 
+	
+A view 
+	
+Query results 
+
+2. See the below Structure
+PROMOTIONS
+
+Name      Null? Type
+------------------------------
+promo_id     NN  number(6)
+promo_name     NN  varchar(30)
+promo_subcategory   NN  varchar(30)
+promo_subcategory_idNN  number
+promo_category     NN  varchar(30)
+promo_category_id   NN  number
+promo_cost     NN  number(10,2)
+promo_begin_date    NN  date
+promo_end_date     NN  date
+Which statement will execute successfully?
+	
+UPDATE promotions
+SET promo_cost = promo_cost+100
+WHERE promo_end_date > TO_DATE(SUBSTR('01-JAN-200',8));
+	
+ SELECT promo_begin_date
+FROM promotions
+WHERE TO_CHAR(promo_begin_date,'mon dd yy')='jul 01 98';
+	
+none
+	
+SELECT TO_CHAR(promo_begin_date,'dd/month')
+FROM promotions
+WHERE promo_begin_date IN (TO_DATE('JUN 01 98',TO_DATE('JUL 01 98'));
+
+
+3. Which of the following statements are true regarding table locks?
+	
+They can only be released by the client holding them.
+	
+ both are true
+	
+both are false
+	
+They are implicitly released when the connection is closed.
+
+4. Which database object can be used for database event catching/programming?
+	
+view
+	
+ function
+	
+stored procedure
+	
+trigger
+
+5. which statement is true about the union operator?
+	
+Null values are not ignored during duplicate checking. 
+	
+ Names of all columns must be identical across all SELECT statements.
+	
+The number of columns selected in all SELECT statements need to be the same.
+	
+By default, the output is not sorted. 
+
+6. Which function used to get the current time in MySQL?  
+	
+time()
+	
+ none
+	
+now()
+	
+getTime()
+
+7. Observe the structure of the MARKS table. 
+
+Name  Null?  Type
+-----  ------  -------
+Student_id NN  varchar(4)
+student_name   varchar(25)
+subject1   number(3)
+subject2   number(3)
+subject3   number(3)
+which statement will execute successfully.
+	
+select sum(subject1+subject2+subject3) from marks where student_name is null;
+	
+ none
+	
+select student_name,subject1 from marks where subject1>AVG(subject1);
+	
+select student_name,sum(subject1) from marks where student_name like 'R%';
+
+8. You need to generate a list of all customer last names with their credit limits from the CUSTOMERS table. Those customers who do not have a credit limit should appear last in the list. Which query would achive the result?
+	
+select cust_last_name,cust_credit_limit from customers order by cust_last_name, cust_credit_limit nulls last;
+	
+ none
+	
+select cust_last_name,cust_credit_limit from customers order by cust_credit_limit Desc;
+	
+select cust_last_name, cust_credit_limit from customers order by cust_credit_limit;
+
+9. which statement is true regarding the INTERSECT operator?
+	
+The name of columns in all SELECT statemnst must be identical. 
+	
+ Reversing the order of the intersected tables the result.
+	
+it ignores NULL values.
+	
+The number of columns and data types must be identical for all SELECT statements in the query.
+
+10. For which statement transaction will not complete.
+	
+When a TUINCATE statement is executed after the pending transactions.
+	
+ When a ROLLBACK command is executed.
+	
+When a DELETE statement is executed. 
+	
+All
+
+11. Which of the following is not a DB constraint?
+	
+check
+	
+ primary
+	
+is null
+	
+Unique key
+
+12. See the table structure below
+promotions
+
+promo_id   promo_category     promo_subcategory
+---------  ---------------    ------------------
+506    magazine       discount
+507        tv        general advt
+508        newspaper       discount
+509    post           general advt
+510    post           discount
+511    radio       general advt
+512    newspaper       general advt
+513    newspaper          discount
+514        magazine           general advt
+515    newspaper       discount
+516        newspaper       general advt
+you need to display all promo categories that do not have 'discount' in their subcatory.
+which sql statement will give you the desired result. 
+	
+none
+	
+ SELECT promo_category
+FROM promotions
+INTERSECT
+SELECT promo_category
+FROM promotions
+WHERE promo_subcategory = 'discount';
+	
+SELECT promo_category
+FROM promotions
+MINUS
+SELECT promo_category
+FROM promotions
+WHERE promo_subcategory <> 'discount';
+	
+SELECT promo_category
+FROM promotions
+MINUS
+SELECT promo_category
+FROM promotions
+WHERE promo_subcategory = 'discount';
+
+13. See the Below structure
+
+Table :  Customers
+Name   Null?  Type
+cust_first_name  NN  number
+cust_last_name  NN  varchar(20)
+cust_gender  NN  char(1)
+cust_year_of_birth NN  number(4)
+cust_maritial_status   varchar(20)
+cust_street_address NN  varchar(40)
+cust_postal_code NN  varchar(10)
+cust_city  NN  varchar(30)
+cust_state_province NN  varchar(40)
+country_id  NN  number
+cust_income_lever   varchar(30)
+cust_credit_limit   number
+cust_email    varchar(30)
+you want to update the cust_credit_limit column to null for all the customers, where cust_income_level has null in the customers table. which SQL statement will accomplish the task.
+	
+update customers set cust_credit_limit =To_NUMBER(null) where cust_income_level=TO_NUMBER(null);
+	
+ update customers set cust_credit_limit=TO_NUMBER('',9999) where cust_income_level is null;
+	
+update customers set cust_credit_limit=null where cust_income_level=null;
+	
+update customers set cust_credit_limit=null where cust_income_level is null;
+
+14. which statement is true regarding view.
+	
+A view is created with the subquery having the DISTINCT keyword can be updated. 
+	
+ A Data Manipulation Language operation can be performed on a view that is created with the subquery having all the NOT NULL columns of a table. 
+	
+A subquery that defines a view cannot include the GROUP BY clause.
+	
+none
+
+15. Will the following SELECT query list all of the tables in the INFORMATION_SCHEMA database?
+If not, why? SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_SCHEMA = 'INFORMATION_SCHEMA' ORDER BY TABLE_NAME
+	
+No; the WHERE clause is incorrect. The correct field name is TABLE_SCHEMATA.
+	
+ yes
+	
+No; the INFORMATION_SCHEMA database does not contain information on itself.
+	
+No; there is no table in the INFORMATION_SCHEMA database called TABLES.
+
+16. Which of the following cannot be used in a SQL Statement?
+	
+Function
+	
+ WITH Clause
+	
+Stored Procedure
+	
+IN Clause
+
+17. Suppose you have a column in which most records are going to be between 30 and 32 characters.
+Which of the following column types would be most efficient?
+	
+varchar
+	
+ text
+	
+char
+	
+either varchar or char
+
+18. Consider the following query: DELETE FROM INFORMATION_SCHEMA.TABLES
+WHERE table_schema = 'world' AND table_name = 'Country' What would be the result of
+executing this query?
+	
+An error would be issued
+	
+ The row would be deleted from the INFORMATION_SCHEMA.TABLES table, and the table
+Country would be dropped from the world database
+	
+The row would be deleted from the INFORMATION_SCHEMA, but the table Country in the
+world database would be unaffected.
+	
+A warning would be issued
+
+19. which statement is true regarding the USING and ON clauses in table joins?
+	
+a maximum of one pair of columns can be joined between two tables using the on clause.
+	
+ The where cluae can be used to apply additional conditions in SELECT statement containing the ON or the USING clause.
+	
+both are false
+	
+both are true
+
+20. which statement is not true about subquery.
+	
+Only one column or expression ca be compared between the main query and subquery. 
+	
+ subquery can contain GROUP BY and ORDER BY clauses.
+	
+Multiple columns or expressions can be compared between the main query and subquery.
+	
+Main query and subquery can get data from different tables.
+        
+       		 					                   	  Submit
+      
+      
