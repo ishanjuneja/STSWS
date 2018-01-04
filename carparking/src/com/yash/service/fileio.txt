@@ -1,0 +1,301 @@
+
+WELCOME: ISHAN JUNEJA
+
+TIME REMAINING: 00:12:11
+
+                                                                                                                     
+LOGOUT
+Java IO
+
+
+
+1. What will be the output of the below code. 
+import java.io.*;
+class Test{
+ public static void main(String[] args){
+  File existingDir=new File("existingDir");
+  System.out.println(existingDir.isDirctory());
+  File existingDirFile=new File(existingDir,"existingDirFile.txt");
+  System.out.println(existingDirFile.isFile());
+  FileReader fr=new FileReader(existingDirFile);
+  BufferedReader br=new BufferedReader(fr);
+  String str;
+  while((str=br.readLine())!=null){
+   System.out.println(str);
+  }
+  br.close();
+ }
+}
+
+Assume that in existingDirFile there are some lines of text. 
+	
+true
+false
+line 1 of text
+line 2 of text
+	
+ compilation error
+	
+true
+true
+line 1 of text
+line 2 of text
+	
+false
+true
+line 1 of text
+line 2 of text
+
+2. What will be the output of the below code.
+import java.io.*;
+class Keyboard { 
+}
+public class Computer implements Serializable {
+private Keyboard k = new Keyboard();
+public static void main(String[] args) {
+Computer c = new Computer();
+c.storeIt(c);
+}
+void storeIt(Computer c) {
+try {
+ObjectOutputStream os = new ObjectOutputStream(
+new FileOutputStream("myFile"));
+os.writeObject(c);
+os.close();
+System.out.println("done");
+} 
+catch (Exception x) {
+System.out.println("exc"); 
+}
+}
+}
+	
+exc
+	
+ done
+	
+Exactly two objects are serialized
+	
+Exatly one object is serialized
+
+3. What will happen when you run the below code, tick the appropriate answer?
+import java.io.*;
+class FileTest{
+ public static void main(String[] args){
+  File file=new File("test.txt");
+}
+}
+	
+nothing will happen.
+	
+ code will not be compiled, because it will not created test.txt file. 
+	
+code will be executed successfully and File Object will be created, this will not make physical file available in the disk. 
+	
+code will be successfully compiled and test.txt file will be created. 
+
+4. Which statement is not true for File?
+	
+File is not used to actually read or write data.
+	
+ File constructor creates the file at the specified location. 
+	
+File is used to create directories
+	
+File is used to delete file or directories. 
+
+5. which statement in the below code will generate the error?
+1.import java.io.*;
+2.class WriterTest{
+3. public static void main(String[] args){
+4.  try{
+5.   File file=new File("test.doc");
+6.   FileWriter fw=new FileWriter(file);
+7.   fw.print("Test File \nTest File");
+8.   fw.close();
+9.  }
+10.  catch(Exception ex){
+11.   ex.printStackTrace();
+12.  }
+13. }
+14.}
+	
+line 5
+	
+ line 8
+	
+line 6
+	
+line 7
+
+6. If we have one class which consists 5 fields. Out of 5 fields one is static, three are private, one is transient. If we serialize the object and save it in file. How many variables will be saved, when object is saved in file. 
+	
+5
+	
+ 4
+	
+2
+	
+3
+
+7. What is true for serialization. Select the most appropriate answer.
+	
+Serialization is a process by which an object is written in the file.
+	
+ none is correct.
+	
+Serialization says "Save this object and all of its instance variables."
+	
+Serialization is an interface, can be used with any object. 
+
+8. Suppose we have a requirement, we have one Product Object, having various fields. We want to store this object in file, but while storing this object, we don't want one of its field let say "specification" to be stored in file. Which is the most appropriate way, tick the correct one from the available options. 
+	
+none is correct.
+	
+ class Product impletements serializable{
+ private int id;
+ private String name;
+ private String description;
+ transient List<String> specification;
+ //setters and getters
+}
+	
+class Product impletements serializable{
+ private int id;
+ private String name;
+ private String description;
+ private transient List<String> specification;
+ //setters and getters
+}
+	
+class Product impletements serializable{
+ private int id;
+ private String name;
+ private String description;
+ private List<String> specification;
+ //setters and getters
+}
+
+9. See the below code.
+class TKO {
+ public static void main(String[] args) {
+ String s = "-";
+ Integer x = 343;
+ long L343 = 343L;
+ if(x.equals(L343)) s += ".e1 ";
+ if(x.equals(343)) s += ".e2 ";
+ Short s1 = (short)((new Short((short)343)) / (new  Short((short)49)));
+ if(s1 == 7) s += "=s ";
+ if(s1 < new Integer(7+1)) s += "fly ";
+ System.out.println(s);
+ }
+}
+Which of the following will not be included in the output String?
+	
+fly
+	
+ .e2
+	
+.e1
+	
+ =s
+
+10. Suppose we have a requirement, we want to write lots of data in the file, where new line will be inserted, we do not want to use "\n", and the complex part is that we are using java1.4 (old API) in some of the application. Here the complex part is in java 1.4 PrintWriter constructor will not support the to get file object. How can you resolve this issue. 
+	
+you can do this using File chaining.
+	
+ there is no soluction.
+	
+you will have to migrate your application for new version. 
+	
+We will have to mannualy take care of new line.
+
+11. which is not the correct one out of the given?
+	
+StringReader
+	
+ FileReader
+	
+console
+	
+BufferedReader
+
+12. Suppose you are using BufferedReader and you use its readLine() method, which statement is most appropriate for supporting this questions. 
+	
+we can achive the same result with read() method as we are getting with readLine().
+	
+ readLine() allows you to get the next line of characters from a file. 
+	
+readLine() will read the next line.
+	
+readLine() is very effective than read() method.
+
+13. What will be the output of the below code.
+import java.io.*;
+class Player {
+ Player() { 
+  System.out.print("p"); 
+ }
+}
+
+class CardPlayer extends Player implements Serializable {
+ CardPlayer() { 
+  System.out.print("c"); 
+ }
+
+public static void main(String[] args) {
+ CardPlayer c1 = new CardPlayer();
+ try {
+  FileOutputStream fos = new FileOutputStream  ("play.txt");
+  ObjectOutputStream os = new   ObjectOutputStream(fos);
+  os.writeObject(c1);
+  os.close();
+  FileInputStream fis = new FileInputStream  ("play.txt");
+  ObjectInputStream is = new ObjectInputStream  (fis);
+  CardPlayer c2 = (CardPlayer) is.readObject();
+  is.close();
+ } 
+ catch (Exception x ) { 
+ }
+}
+}
+	
+pcpc
+	
+ pcp
+	
+pcc
+	
+pc
+
+14. We want to create a file inside a directory using programming approach. Which code will suffice the purpose. 
+	
+File myDir=new File("codes");
+myDir.mkdir();
+File file=new File(myDir,"text.txt");
+file.createNewFile();
+	
+ File myDir=new File("codes");
+myDir.mkdir();
+File file=new File("text.txt");
+file.createNewFile();
+	
+File file=new File("codes");
+file.createNewFile("text.txt");
+	
+File file=new File("codes","text.txt");
+file.createNewFile();
+
+15. Which method is not the part of PrintWriter class.
+	
+all are true
+	
+ printf()
+	
+format()
+	
+append()
+        
+       		 					                   	  Submit
+      
+      
