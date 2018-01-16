@@ -1,0 +1,252 @@
+
+WELCOME: ISHAN JUNEJA
+TIME REMAINING: 00:06:44
+                                                                                                                   
+LOGOUT
+CSS
+
+
+1. Are there more than one decleration possible using?
+	
+Yes, via semicolom
+	
+ No, it's not possible
+	
+Yes, via comma
+	
+Yes, both (1), (2) can be use
+
+2. [title~="vegetables"] {
+    color:''#ffcc00';
+}
+Using above one what elements will select?
+	
+Match elements with title="sour-vegetables" or title="vegetable".
+	
+ Match elements with title="vegetables", 
+title="green,
+title="sour-vegetables" title="vegetable"
+	
+Match elements with title="vegetables", 
+title="green  vegetables", and title="vegetables light"
+	
+All 
+
+3. Pseudo Classes are not in following selectors?
+	
+Both
+	
+ None of them
+	
+:link, :visited,
+:hover
+	
+:first-child, :last-child, :first-line
+
+4. Box offset properties actually defined?
+	
+Deprecated from HTML specialtions and standards.
+	
+ Not work with position
+	
+top, right, bottom, and left.
+	
+All of them
+
+5. If we want  image never scale than to larger than its actual size, than what property need to be add?
+	
+None of them
+	
+ max-width:100%;
+height:auto;
+	
+max-width:100%
+	
+min-width:100%
+max-width:100%;
+height:auto;
+
+6. To make Relations between the more than one selectors?
+	
+Both (1) and (2) option can be use.
+	
+ Combination css
+	
+(space)
+(>)
+(+)
+(~)
+	
+It's not feasible using CSS
+
+7. Declaration Block statement denotes?
+	
+None of them
+	
+ Consisting of property, colon and value
+	
+All True
+	
+Defining of property, colon and value within braces
+
+8. The purpose is to use Contextual selector?
+	
+Select any elements of web page
+	
+ To select space separates the individual selectors
+	
+All
+	
+Select special 
+occurrences of an element
+
+9. How can we Set the odd and even rows of a table with different colors.
+	
+:nth-child(even-odd) (or :nth-child(2n-1n))
+	
+ None of them
+	
+:nth-child(even) (or :nth-child(2n))
+	
+:nth-child(even) (or :nth-child(2n))
+:nth-child(odd) (or :nth-child(2n+1))
+
+10. Terminology used to  applies to the whole style sheet; which is not to a specific selector only; like the case of ruleset. It begins with the ?@? symbol followed by a keyword contain letters a-z, A-Z, digits 0-9, dashes and escaped characters
+	
+ruleset
+	
+ None of them
+	
+at-rule
+	
+font-face
+
+11. Write a snippet of CSS that will display a descriptions in green in older browsers, purple in newer browsers, yellow in IE6 and black in IE7
+	
+By Using hacks
+	
+ Uses a valid hack, other than conditional IE comments
+	
+Using html>body hack and * html hack
+	
+None
+
+12. There are the following 2D transformation methods?
+	
+All of them
+	
+ translate()
+rotate()
+scale()
+
+	
+translate()
+rotate()
+scaleY()
+scaleX()
+skewX()
+skewY()
+matrix()
+	
+translate()
+rotateY()
+rotateX()
+scaleY()
+scaleX()
+skewX()
+skewY()
+matrix()
+
+13. Which of the following CSS properties, used by itself, can cause HTML elements to overlap?
+	
+1. Position with z-index
+	
+ 1. z-index
+	
+1. z-index
+2. margin
+3. overflow
+4. indent
+	
+1. z-index
+2. overflow
+
+14. Clearfix technique is used with 
+	
+All of them
+	
+ :before and :after  pseudo-elements wiy any div
+	
+:before and :after pseudo-elements on the inner and child element
+	
+:before and :after pseudo-elements on the parent element
+
+15. Aural media properties can we use for?
+	
+Projects the 
+CSS on projectors.
+	
+ Gives a preview of
+ the content when printed
+	
+Computers and laptop screens
+	
+Sound synthesizers 
+and speech
+
+16. Property that allows us to include the padding with total with and height.
+	
+Flexbox
+	
+ box-resizing
+	
+counter 
+	
+box-sizing
+
+17. The property specifies the style of the rule between columns?
+	
+column-style 
+	
+ column-style -rule
+	
+None of them
+	
+column-rule-style 
+
+18. For what purpose @keyframes  use?
+	
+All of them
+	
+ Animation
+	
+Transform
+	
+Transition
+
+19. Element can be resizable in following direction?
+	
+Horizontal, Vertical
+	
+ None of them
+	
+Horizontal, Vertical, both
+	
+Horizontal, Vertical, Left, Top, Bottom, Right, Footer. Any direction
+
+20. CSS can be applied for webpages using following?
+	
+None
+	
+ Inline
+Embedded, Linked
+	
+Inline
+Embedded, Linked,  Imported
+	
+Inline
+enternal, Linked
+        
+       		 					                   	  Submit
+      
+      
