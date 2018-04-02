@@ -1,0 +1,53 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Select A category" [(ngModel)]="categoryselected" name="categoryselected">
+        <mat-option *ngFor="let category of categories" [value]="category.category_text" (click)="applyFilterForCategory()">
+          {{ category.category_text }}
+        </mat-option>
+      </mat-select>
+     
+    </mat-form-field>
+
+
+  </div>
+
+  <mat-table #table [dataSource]="dataSource">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+      <mat-cell *matCellDef="let question"> {{question.id}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="question.category.id">
+      <mat-header-cell *matHeaderCellDef> Category Name </mat-header-cell>
+      <mat-cell *matCellDef="let question"> {{question.category.category_text}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="question.questionText">
+      <mat-header-cell *matHeaderCellDef> Question </mat-header-cell>
+      <mat-cell *matCellDef="let question"> {{question.questionText}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="answerButton">
+      <div class="answer-heading">
+        <mat-header-cell *matHeaderCellDef> Answers </mat-header-cell>
+      </div>
+      <mat-cell *matCellDef="let question">
+        <div class="answer-button" >
+          <button mat-raised-button color="primary" (click)="openDialog(question.id)" [value]="question.id" id={{question.id}}>Answer</button>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
